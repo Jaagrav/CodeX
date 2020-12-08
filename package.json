@@ -1,0 +1,39 @@
+{
+  "name": "codex",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@material-ui/core": "4.11.1",
+    "@material-ui/icons": "4.9.1",
+    "@material-ui/styles": "4.11.1",
+    "axios": "0.21.0",
+    "firebase": "8.1.1",
+    "netlify-cli": "^2.69.3",
+    "netlify-lambda": "^2.0.1",
+    "react": "17.0.0",
+    "react-ace": "9.2.0",
+    "react-dom": "17.0.0",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "3.4.3"
+  },
+  "devDependencies": {
+    "typescript": "3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "start:lambda": "netlify-lambda serve backend",
+    "build:lambda": "netlify-lambda build backend",
+    "prod": "CI= npm run build; CI= npm run build:lambda"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

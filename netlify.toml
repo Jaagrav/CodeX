@@ -1,0 +1,8 @@
+[build]
+  functions = "/lambda"
+  command = "CI= npm run prod"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
