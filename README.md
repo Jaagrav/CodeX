@@ -1,5 +1,7 @@
 > Due to insufficient funding and overwhelming amount of requests (> 100k a month) Netlify took this website down, I'll try my best to bring it back as soon as possible, due to my exams it will be taking a while but with the next update, I'll be making the backend code opensource as well. Sorry to everyone for this inconvenience, I'll try my best to bring the project back up online as soon as possible.
 
+## Since Netlify took this API down, I have made the backend open source and also the API is available free for public again, hosted on Heroku, you can see more on [CodeX-API Github Page](https://github.com/Jaagrav/CodeX-API).
+
 # [CodeX](https://codexweb.netlify.app)
 CodeX is an online compiler for various languages like Java, C++, Python, etc.
 
