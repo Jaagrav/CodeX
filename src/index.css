@@ -39,3 +39,10 @@ body * {
 *::-webkit-scrollbar-thumb:hover {
   background-color: #465162;
 }
+
+.ace_editor,
+.ace_editor div {
+  font-family: monospace !important;
+  text-rendering: optimizeLegibility;
+  text-indent: 0.1px;
+}

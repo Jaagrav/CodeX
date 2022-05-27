@@ -15,7 +15,7 @@ import {
   InputLabel,
   makeStyles,
   createStyles,
-  Theme
+  Theme,
 } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import { darkTheme } from "../../components/MaterialTheming";
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     homePage: {
       height: "100%",
-      width: "100%"
+      width: "100%",
     },
     header: {
       width: "100%",
@@ -37,44 +37,44 @@ const useStyles = makeStyles((theme: Theme) =>
       gridTemplateColumns: "repeat(3, 33.5%)",
       textAlign: "center",
       "& > *": {
-        margin: "auto 0"
+        margin: "auto 0",
       },
       [theme.breakpoints.down("sm")]: {
         gridTemplateColumns: "unset",
-        gridTemplateRows: "repeat(3, auto)"
-      }
+        gridTemplateRows: "repeat(3, auto)",
+      },
     },
     brandingLogo: {
-      cursor: "pointer"
+      cursor: "pointer",
     },
     buttonGroup: {
       "& .MuiButton-outlinedPrimary": {
-        borderWidth: "3px"
+        borderWidth: "3px",
       },
       margin: "auto",
       width: "100%",
       [theme.breakpoints.down("sm")]: {
-        margin: 0
-      }
+        margin: 0,
+      },
     },
     button: {
       width: "100%",
       "& span": {
         textTransform: "none",
-        color: "#fff"
-      }
+        color: "#fff",
+      },
     },
     codeblocks: {
       width: "100%",
       marginTop: "10px",
       height: "calc(100% - 65px)",
       [theme.breakpoints.down("sm")]: {
-        height: "calc(100% - 115px)"
-      }
+        height: "calc(100% - 115px)",
+      },
     },
     backdrop: {
       zIndex: theme.zIndex.drawer + 1,
-      color: "#fff"
+      color: "#fff",
     },
     createClassModal: {
       height: "fit-content",
@@ -86,27 +86,27 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: 15,
       textAlign: "left",
       "& span": {
-        display: "block"
-      }
+        display: "block",
+      },
     },
     modalTitle: {
-      fontSize: "20px"
+      fontSize: "20px",
     },
     modalDesc: {
       color: "#2196F3",
-      fontSize: "13px"
+      fontSize: "13px",
     },
     modalInput: {
       width: "100%",
-      marginTop: "10px"
+      marginTop: "10px",
     },
     modalSelect: {
       width: "100%",
-      marginTop: "20px"
+      marginTop: "20px",
     },
     modalButton: {
-      margin: "20px 10px 4px 0"
-    }
+      margin: "20px 10px 4px 0",
+    },
   })
 );
 
@@ -138,13 +138,13 @@ function Home() {
         .push({
           className: inputClassName,
           language: lang,
-          code: ``
+          code: ``,
         })
         .then((snap) => {
           console.log(classCodes);
           setClassCodes([
             ...classCodes,
-            { name: inputClassName, key: snap.key, lang: lang }
+            { name: inputClassName, key: snap.key, lang: lang },
           ]);
           history.push("/" + classCodes.length + "/" + snap.key);
         });
@@ -164,13 +164,13 @@ function Home() {
             }}
           >
             <MenuItem value={"cpp"}>C++</MenuItem>
-            <MenuItem value={"c"}>C</MenuItem>
-            <MenuItem value={"cs"}>C#</MenuItem>
+            {/* <MenuItem value={"c"}>C</MenuItem>
+            <MenuItem value={"cs"}>C#</MenuItem> */}
             <MenuItem value={"java"}>Java</MenuItem>
             <MenuItem value={"py"}>Python3</MenuItem>
-            <MenuItem value={"rb"}>Ruby</MenuItem>
+            {/* <MenuItem value={"rb"}>Ruby</MenuItem>
             <MenuItem value={"kt"}>Kotlin</MenuItem>
-            <MenuItem value={"swift"}>Swift</MenuItem>
+            <MenuItem value={"swift"}>Swift</MenuItem> */}
           </Select>
         </FormControl>
       );

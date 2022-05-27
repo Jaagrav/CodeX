@@ -20,7 +20,7 @@ import {
   Backdrop,
   CircularProgress,
   LinearProgress,
-  Theme
+  Theme,
 } from "@material-ui/core";
 import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
 import { ThemeProvider } from "@material-ui/styles";
@@ -39,49 +39,49 @@ const useStyles = makeStyles((theme: Theme) =>
       //   background: "#ff711e36 !important"
       // },
       "& .ace_gutter": {
-        backgroundColor: "#19202b"
+        backgroundColor: "#19202b",
       },
       "& .ace_editor": {
-        backgroundColor: "#19202b"
+        backgroundColor: "#19202b",
       },
       "& .ace_support.ace_function": {
-        color: "#2196F3"
+        color: "#2196F3",
       },
       [theme.breakpoints.up("sm")]: {
         gridTemplateRows: "unset",
-        gridTemplateColumns: "calc(100% - 350px) 330px"
-      }
+        gridTemplateColumns: "calc(100% - 350px) 330px",
+      },
     },
     backdrop: {
       zIndex: theme.zIndex.drawer + 1,
-      color: "#fff"
+      color: "#fff",
     },
     editor: {
       height: "100% !important",
       width: "100% !important",
       borderBottom: "2px solid #2196F3",
       "& *": {
-        fontFamily: "monospace"
+        fontFamily: "monospace",
       },
       [theme.breakpoints.up("sm")]: {
         borderBottom: "none",
-        borderRight: "2px solid #2196F3"
-      }
+        borderRight: "2px solid #2196F3",
+      },
     },
     output: {
       display: "grid",
-      gridTemplateRows: "auto 1fr auto"
+      gridTemplateRows: "auto 1fr auto",
     },
     selectlang: {
       height: "32px",
       margin: "7px 0",
-      textAlign: "left !important"
+      textAlign: "left !important",
     },
     runPanel: {
-      textAlign: "left !important"
+      textAlign: "left !important",
     },
     runBtn: {
-      marginRight: 10
+      marginRight: 10,
     },
     inputModal: {
       height: "fit-content",
@@ -95,28 +95,28 @@ const useStyles = makeStyles((theme: Theme) =>
       "& text": {
         display: "block",
         color: "#2196F3",
-        fontSize: "20px"
+        fontSize: "20px",
       },
       "& smallertext": {
         display: "block",
-        fontSize: "14px"
-      }
+        fontSize: "14px",
+      },
     },
     modalInput: {
       width: "100%",
-      marginTop: "10px"
+      marginTop: "10px",
     },
     runBtnOnModal: {
-      marginTop: "20px"
+      marginTop: "20px",
     },
     buttonProgress: {
       color: "white",
-      margin: "auto"
+      margin: "auto",
     },
     outputTitle: {
       color: "#2196F3",
       margin: "7px 0",
-      textAlign: "left !important"
+      textAlign: "left !important",
     },
     outputTerminal: {
       textAlign: "left",
@@ -124,14 +124,14 @@ const useStyles = makeStyles((theme: Theme) =>
       overflow: "auto",
       whiteSpace: "pre-line",
       fontFamily: "monospace",
-      fontSize: "17px"
-    }
+      fontSize: "17px",
+    },
   })
 );
 
 function EditorBody({ storeAt, index }) {
   const classes = useStyles();
-  const [codeFontSize, setCodeFontSize] = React.useState(20),
+  const [codeFontSize, setCodeFontSize] = React.useState(16),
     [showLoader, setShowLoader] = React.useState(true),
     [lang, selectlang] = React.useState(""),
     [editorLanguage, setEditorLanguage] = React.useState("c_cpp"),
@@ -150,7 +150,7 @@ function EditorBody({ storeAt, index }) {
   if (
     localStorage.getItem("codex-codes") &&
     JSON.parse(localStorage.getItem("codex-codes"))[index].key ===
-    storeAt.substring(storeAt.indexOf("/") + 1)
+      storeAt.substring(storeAt.indexOf("/") + 1)
   )
     setNotOwner(false);
   console.log("Let edit: " + notOwner);
@@ -190,7 +190,7 @@ function EditorBody({ storeAt, index }) {
         rb: "ruby",
         py: "python",
         kt: "kotlin",
-        swift: "swift"
+        swift: "swift",
       };
       console.log(langArray[lang]);
       setEditorLanguage(langArray[lang]);
@@ -223,23 +223,23 @@ function EditorBody({ storeAt, index }) {
     var data = {
       code: code,
       language: lang,
-      input: input
+      input: input,
     };
 
     var config = {
       method: "post",
-      url:
-        "/.netlify/functions/enforceCode",
+      url: "https://codex-api.herokuapp.com/",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      data: data
+      data: data,
     };
 
     axios(config)
       .then(function (response) {
         setExecuting(false);
-        setOutputValue(response.data.output);
+        if (response.data.success) setOutputValue(response.data.output);
+        else setOutputValue(response.data.error);
       })
       .catch(function (error) {
         setExecuting(false);
@@ -262,13 +262,13 @@ function EditorBody({ storeAt, index }) {
         disabled={notOwner}
       >
         <MenuItem value={"cpp"}>C++</MenuItem>
-        <MenuItem value={"c"}>C</MenuItem>
-        <MenuItem value={"cs"}>C#</MenuItem>
+        {/* <MenuItem value={"c"}>C</MenuItem> */}
+        {/* <MenuItem value={"cs"}>C#</MenuItem> */}
         <MenuItem value={"java"}>Java</MenuItem>
         <MenuItem value={"py"}>Python3</MenuItem>
-        <MenuItem value={"rb"}>Ruby</MenuItem>
-        <MenuItem value={"kt"}>Kotlin</MenuItem>
-        <MenuItem value={"swift"}>Swift</MenuItem>
+        {/* <MenuItem value={"rb"}>Ruby</MenuItem> */}
+        {/* <MenuItem value={"kt"}>Kotlin</MenuItem> */}
+        {/* <MenuItem value={"swift"}>Swift</MenuItem> */}
       </Select>
     );
   }
@@ -335,10 +335,11 @@ function EditorBody({ storeAt, index }) {
           onChange={(e) => {
             setCode(e);
           }}
-          name="UNIQUE_ID_OF_DIV"
           setOptions={{
-            showPrintMargin: false,
-            fontSize: codeFontSize
+            enableBasicAutocompletion: true,
+            enableLiveAutocompletion: true,
+            enableSnippets: true,
+            fontSize: 20,
           }}
           value={code}
           className={classes.editor}
