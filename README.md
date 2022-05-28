@@ -1,12 +1,12 @@
-# [CodeX](https://codexweb.netlify.app)
+# [CodeX](https://codex.jaagrav.in)
 
 CodeX is an online compiler for various languages like Java, C++, Python, etc.
 
-[![CodeX Editor](https://dev-to-uploads.s3.amazonaws.com/i/6f0l70d73sf7m7razxmt.png)](https://codexweb.netlify.app)
+[![CodeX Editor](https://dev-to-uploads.s3.amazonaws.com/i/6f0l70d73sf7m7razxmt.png)](https://codex.jaagrav.in)
 
 CodeX has a simple UI in order to store all your codes written in various languages easily at one place.
 
-[![CodeX Home](https://dev-to-uploads.s3.amazonaws.com/i/07a4naxeav1uunz9b8ne.png)](https://codexweb.netlify.app)
+[![CodeX Home](https://dev-to-uploads.s3.amazonaws.com/i/07a4naxeav1uunz9b8ne.png)](https://codex.jaagrav.in)
 
 You can share the codes' links that you write with your friends without being worried about them making any changes.
 CodeX stores all your code details on your device, which means every code that you write will only be editable on the
