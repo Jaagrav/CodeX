@@ -340,6 +340,7 @@ function EditorBody({ storeAt, index }) {
             enableLiveAutocompletion: true,
             enableSnippets: true,
             fontSize: 20,
+            showPrintMargin: false,
           }}
           value={code}
           className={classes.editor}
