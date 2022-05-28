@@ -164,8 +164,8 @@ function Home() {
             }}
           >
             <MenuItem value={"cpp"}>C++</MenuItem>
-            {/* <MenuItem value={"c"}>C</MenuItem>
-            <MenuItem value={"cs"}>C#</MenuItem> */}
+            <MenuItem value={"c"}>C</MenuItem>
+            {/* <MenuItem value={"cs"}>C#</MenuItem> */}
             <MenuItem value={"java"}>Java</MenuItem>
             <MenuItem value={"py"}>Python3</MenuItem>
             {/* <MenuItem value={"rb"}>Ruby</MenuItem>
