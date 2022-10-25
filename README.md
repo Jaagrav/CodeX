@@ -17,7 +17,7 @@ you to find out. Once you find it out simply create an issue reporting the bug.
 No need to Sign In / Sign Up in order to execute and save your code. Every code automatically saves and updates in realtime
 so don't worry about losing it. It will always live in your computer unless you decide to clear your cache.
 
-## Something special for other developers
+## Something special for other developers.
 
 ### Introducing the CodeX API,
 
